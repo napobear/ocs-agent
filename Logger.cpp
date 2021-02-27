@@ -76,9 +76,9 @@ Logger::LogFormat(int level, const char* fmtString, ...)
 
 	char logString[1024];
 	va_list argp;
-	va_start(argp, fmtString);
-	vsnprintf(logString, sizeof(logString), fmtString, argp);
-	va_end(argp);
+	::va_start(argp, fmtString);
+	::vsnprintf(logString, sizeof(logString), fmtString, argp);
+	::va_end(argp);
 	DoLog(level, logString);
 }
 
@@ -130,12 +130,13 @@ Logger::Get(const std::string& loggerType)
 }
 
 
-// StdoutLogger
+// StdErrLogger
 StdErrLogger::StdErrLogger(const char* logName)
 	:
 	Logger(logName)
 {
 }
+
 
 /* virtual */
 StdErrLogger::~StdErrLogger()

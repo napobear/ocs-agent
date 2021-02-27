@@ -15,8 +15,10 @@ struct processor_info {
 	int physical_id;
 	std::string manufacturer;
 	std::string type;
+	std::string arch;
 	std::string Speed() const;
 	std::string cores;
+	std::string logical_cpus;
 	std::string cache_size;
 	std::string serial;
 	std::string speed;
